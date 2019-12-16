@@ -1,0 +1,11 @@
+.DS_Store
+/upload
+/node_modules
+/dist
+.vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
+/.idea
+npm-debug.log
+/lib
+.sass-cache
