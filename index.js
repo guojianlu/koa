@@ -1,6 +1,10 @@
 const Koa = require('./src/koa')
 const app = new Koa()
 
+// 数据缓存
+const cache = require('./src/cache')
+app.use(cache('/api/data'))
+
 // 请求拦截
 app.use(require('./src/interceptor'))
 
@@ -22,3 +26,4 @@ app.use(router.routes())
 app.listen(3000, () => {
   console.log(`server is running at 3000 port`)
 })
+
