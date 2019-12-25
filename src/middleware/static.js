@@ -5,14 +5,13 @@ module.exports = (dirPath = '../public') => {
   return async (ctx, next) => {
     if (ctx.url.indexOf('/public') === 0) {
       const url = path.resolve(__dirname, dirPath)
-      const fileBaseName = path.basename(url)
       const filepath = url + ctx.url.replace("/public", "")
 
       try {
         const stat = fs.statSync(filepath)
         if (stat.isDirectory()) {
           const dir = fs.readdirSync(filepath)
-          const ret = ['<div style="padding-left:20px">']
+          const ret = ['<div style="padding:20px">']
 
           dir.forEach(filename => {
             // 简单认为不带小数点的格式，就是文件夹，实际应该用statSync
